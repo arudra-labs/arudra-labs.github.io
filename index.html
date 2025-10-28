@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#F5F2E9" />
+  <title>ARUDRA — Tactical AI Systems</title>
+  <meta name="description" content="ARUDRA — Tactical AI systems engineered for maximum autonomy, precision, and control." />
+  <meta property="og:title" content="ARUDRA — Tactical AI Systems" />
+  <meta property="og:description" content="Tactical AI systems engineered for maximum autonomy, precision, and control." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="" />
+  <style>
+    :root {
+      --bg: #F5F2E9;      /* cream background from logo */
+      --fg: #111111;      /* primary text */
+      --muted: #5A5A5A;   /* secondary text */
+      --accent: #1E33FF;  /* royal blue from logo */
+      --card: #FFFFFF;    /* light cards */
+      --border: #E5E1D8;  /* soft border */
+      --shadow: 0 10px 30px rgba(17,17,17,.06);
+    }
+    html, body { height: 100%; background: var(--bg); color: var(--fg); }
+    body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Helvetica Neue", sans-serif; line-height: 1.55; }
+    a { color: var(--fg); text-decoration: none; }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+    header { position: sticky; top: 0; z-index: 30; backdrop-filter: saturate(120%) blur(6px); background: rgba(245,242,233,.85); border-bottom: 1px solid var(--border); }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; letter-spacing: .02em; font-weight: 700; font-size: 20px; font-family: 'Cormorant Garamond', serif; }
+    .brand .logo { width: 40px; height: 40px; display: block; border-radius: 6px; }
+    .nav a:hover { color: var(--accent); }
+    .links { display: flex; gap: 22px; align-items: center; }
+    .pill { display: inline-flex; align-items: center; gap: 10px; padding: 10px 14px; border: 1px solid var(--border); border-radius: 999px; background: #FFFFFF; }
+    .cta { background: var(--accent); border-color: #0f1da8; color: white; box-shadow: 0 8px 22px rgba(30,51,255,.18); }
+    .cta:hover { filter: brightness(1.05); }
+
+    /* Hero */
+    .hero { position: relative; padding: 96px 0 56px; }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; }
+    @media (max-width: 980px) { .hero-grid { grid-template-columns: 1fr; } }
+
+    .sigil { width: 100%; max-width: 540px; filter: drop-shadow(0 12px 26px rgba(17,17,17,.08)); background: transparent; }
+
+    .title { font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 6vw, 84px); margin: 0 0 6px; letter-spacing: .02em; font-weight: 700; color: var(--accent); }
+    .subtitle { color: var(--muted); font-size: clamp(16px, 2.2vw, 18px); max-width: 60ch; margin-bottom: 28px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    /* Section */
+    .section { padding: 56px 0; }
+    .section h2 { margin: 0 0 18px; font-size: 26px; letter-spacing: .02em; color: var(--accent); font-family: 'Cormorant Garamond', serif; }
+    .grid { display: grid; gap: 18px; grid-template-columns: repeat(3, 1fr); }
+    @media (max-width: 900px) { .grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
+
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px; box-shadow: var(--shadow); }
+    .card h3 { margin: 0 0 6px; font-size: 18px; color: var(--fg); font-family: 'Cormorant Garamond', serif; }
+    .card p { margin: 0; color: var(--muted); font-size: 15px; }
+
+    .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); margin: 28px 0; }
+
+    footer { padding: 36px 0 60px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--border); }
+
+    .burger { display: none; }
+    @media (max-width: 760px) {
+      .links { display: none; }
+      .burger { display: inline-flex; width: 40px; height: 40px; align-items: center; justify-content: center; border: 1px solid var(--border); border-radius: 10px; background: #FFFFFF; }
+      .fly { position: fixed; inset: 72px 14px auto 14px; background: #FFFFFF; border: 1px solid var(--border); border-radius: 14px; padding: 14px; display: none; box-shadow: var(--shadow); }
+      .fly a { display: block; padding: 12px; border-radius: 8px; color: var(--fg); }
+      .fly a:hover { background: #F4F2EC; }
+      .fly .cta { display: inline-flex; margin-top: 8px; }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#">
+        <!-- Minimal, brutalist ARUDRA sigil (triangle "A") with subtle split tone and depth shadow -->
+        <img src="arudra-logo.png" alt="ARUDRA logo" class="logo" style="width:34px;height:34px;"/>
+        <span>ARUDRA</span>
+      </a>
+      <nav class="links" aria-label="Primary">
+        <a href="#tech">Technology</a>
+        <a href="#programs">Programs</a>
+        <a href="#about">About</a>
+        <a class="pill cta" href="#contact">Request Access</a>
+      </nav>
+      <button class="burger" aria-label="Menu" onclick="document.querySelector('.fly').style.display = (document.querySelector('.fly').style.display==='block'?'none':'block')">☰</button>
+    </div>
+    <div class="wrap fly" role="dialog" aria-label="Mobile Menu">
+      <a href="#tech">Technology</a>
+      <a href="#programs">Programs</a>
+      <a href="#about">About</a>
+      <a class="pill cta" href="#contact">Request Access</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <h1 class="title">ARUDRA</h1>
+          <p class="subtitle">Tactical AI systems engineered for <strong>maximum autonomy</strong>, <strong>precision</strong>, and <strong>control</strong>. Brutalist design. Military‑grade discipline. Next‑gen outcomes.</p>
+          <div class="actions">
+            <a class="pill cta" href="#contact">Request Access</a>
+            <a class="pill" href="#tech">View Technology</a>
+          </div>
+          <div class="divider"></div>
+          <div class="wrap-mini">
+            <p style="margin:0;color:var(--muted);font-size:13px;letter-spacing:.14em;text-transform:uppercase">Clearance Level: <span style="color:var(--accent)">Restricted</span></p>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:center">
+          <!-- Large center sigil + wordmark -->
+          <img src="arudra-logo.png" alt="ARUDRA logo" class="sigil"/>
+        </div>
+      </div>
+    </section>
+
+    <section id="tech" class="section">
+      <div class="wrap">
+        <h2>Technology Stack</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Autonomy Core</h3>
+            <p>Deterministic control layers with override‑safe execution. Zero‑lag signaling paths under load.</p>
+          </div>
+          <div class="card">
+            <h3>Targeting Logic</h3>
+            <p>Angular geometry optimizations for high‑precision decisions. Sub‑millisecond inference windows.</p>
+          </div>
+          <div class="card">
+            <h3>Armor Protocol</h3>
+            <p>Fault‑tolerant nodes with isolation boundaries and cryptographic attestation of state.</p>
+          </div>
+          <div class="card">
+            <h3>Blackbox Telemetry</h3>
+            <p>Immutable trails and audit‑grade snapshots without exposing strategic intent.</p>
+          </div>
+          <div class="card">
+            <h3>Rapid Orchestration</h3>
+            <p>Container‑native deployments with push‑button rollbacks and encrypted overlays.</p>
+          </div>
+          <div class="card">
+            <h3>Compliance Envelope</h3>
+            <p>Policy‑constrained execution to align capability with operational and legal constraints.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="programs" class="section">
+      <div class="wrap">
+        <h2>Programs</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>MONOLITH</h3>
+            <p>High‑integrity decision engine for extreme environments. Tested against adversarial inputs.</p>
+          </div>
+          <div class="card">
+            <h3>REDLINE</h3>
+            <p>Real‑time response pathways for mission‑critical windows. Budgeted for worst‑case latency.</p>
+          </div>
+          <div class="card">
+            <h3>SIGIL</h3>
+            <p>Secure identity, telemetry, and trace with hermetic boundaries and tamper evidence.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="wrap">
+        <h2>About</h2>
+        <div class="grid" style="grid-template-columns: 1.2fr 1fr;">
+          <div class="card">
+            <h3>Discipline</h3>
+            <p>Brutalist engineering ethic: fewer parts, sharper tolerances, predictable behavior. We build systems that do exactly what they are told—no more, no less.</p>
+          </div>
+          <div class="card">
+            <h3>Assurance</h3>
+            <p>From design to deploy, every pathway is constrained, observed, and proven. Precision is policy.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="wrap">
+        <h2>Request Access</h2>
+        <div class="card" style="display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap">
+          <p style="margin:0;color:var(--muted)">For partnership or evaluation access, email <a href="mailto:access@arudra.ai" style="color:var(--accent)">access@arudra.ai</a> or open a ticket in GitHub Issues.</p>
+          <a class="pill cta" href="https://github.com/" target="_blank" rel="noopener">Open GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+      <div>© <span id="y"></span> ARUDRA. All rights reserved.</div>
+      <div style="letter-spacing:.12em;text-transform:uppercase;color:#cfcfcf">Engineered with <span style="color:var(--red)">discipline</span>.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Set current year
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
